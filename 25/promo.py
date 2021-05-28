@@ -35,7 +35,7 @@ class Promo:
            Bites are done, raise a NoBitesAvailable exception"""
         available = [key for key in self.all_bites.keys() if key not in self.bites_done]
         if len(available) > 0:
-            bite = random.sample(available, 1)[0]
+            bite = random.choice(available)
             return bite
         else:
             raise NoBitesAvailable

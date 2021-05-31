@@ -7,8 +7,8 @@ class BirthdayDict(dict):
 
     def __setitem__(self, name, birthday):
 
-        if f"{birthday.month}-{birthday.day}" in [f"{x.month}-{x.day}" for x in self.values()]:
+        if (birthday.month, birthday.day) in [(x.month, x.day) for x in self.values()]:
             print(MSG.format(name))
 
-        self.update({name: birthday})
+        super().__setitem__(name, birthday)
 
